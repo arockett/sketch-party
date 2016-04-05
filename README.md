@@ -3,7 +3,8 @@
 ## Description
 
 SketchParty is a simple social drawing program created as an exploratory project for a larger system.
-After selecting a drawing template, users can 
+After selecting a drawing template, users can view the drawings other users made on that template as
+well as create their own.
 
 Thanks to williammalone for his nice little drawing app tutorial I used as a starting point for this website.
 His tutorial can be found at:
