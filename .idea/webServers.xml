@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b11f903b-68ac-4215-bf2f-ba2363970684" name="webdev" url="http://webdev.cse.msu.edu/~becketta/sketch-party">
+        <fileTransfer host="arctic.cse.msu.edu" port="22" rootFolder="/user/becketta/classweb/sketch-party" accessType="SFTP" username="becketta">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
