@@ -41,7 +41,7 @@ HTML;
     public function header() {
         $html = <<<HTML
 <header>
-    <h1>$this->title</h1>
+    <img src="images/sketch-party-logo.png">
 </header>
 HTML;
         return $html;

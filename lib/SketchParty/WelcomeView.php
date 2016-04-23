@@ -19,14 +19,6 @@ HTML;
         return $html;
     }
 
-    public function presentSketchList() {
-        $html = <<<HTML
-
-HTML;
-
-        return $html;
-    }
-
     public function presentQuotes() {
         $html = "";
 
