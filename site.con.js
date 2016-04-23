@@ -1,4 +1,4 @@
-/*! DO NOT EDIT sketch-party 2016-04-22 */
+/*! DO NOT EDIT sketch-party 2016-04-23 */
 // Copyright 2010 William Malone (www.williammalone.com)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -410,31 +410,43 @@ var drawingApp = (function () {
 
 			// Load images
 			crayonImage.onload = resourceLoaded;
-			crayonImage.src = "images/crayon-outline.png";
+			crayonImage.src = "images/app/crayon-outline.png";
 
 			markerImage.onload = resourceLoaded;
-			markerImage.src = "images/marker-outline.png";
+			markerImage.src = "images/app/marker-outline.png";
 
 			eraserImage.onload = resourceLoaded;
-			eraserImage.src = "images/eraser-outline.png";
+			eraserImage.src = "images/app/eraser-outline.png";
 
 			crayonBackgroundImage.onload = resourceLoaded;
-			crayonBackgroundImage.src = "images/crayon-background.png";
+			crayonBackgroundImage.src = "images/app/crayon-background.png";
 
 			markerBackgroundImage.onload = resourceLoaded;
-			markerBackgroundImage.src = "images/marker-background.png";
+			markerBackgroundImage.src = "images/app/marker-background.png";
 
 			eraserBackgroundImage.onload = resourceLoaded;
-			eraserBackgroundImage.src = "images/eraser-background.png";
+			eraserBackgroundImage.src = "images/app/eraser-background.png";
 
 			crayonTextureImage.onload = resourceLoaded;
-			crayonTextureImage.src = "images/crayon-texture.png";
+			crayonTextureImage.src = "images/app/crayon-texture.png";
 
 			outlineImage.onload = resourceLoaded;
-			outlineImage.src = "images/watermelon-duck-outline.png";
+			outlineImage.src = "images/outlines/watermelon-duck-outline.png";
 		};
 
 	return {
 		init: init
 	};
 }());
+/**
+ * Created by Aaron Beckett on 4/22/2016.
+ */
+function parse_json(json) {
+    try {
+        var data = $.parseJSON(json);
+    } catch(err) {
+        throw "JSON parse error: " + json;
+    }
+
+    return data;
+}
