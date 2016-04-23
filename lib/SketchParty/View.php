@@ -28,7 +28,7 @@ class View {
 <meta charset="utf-8">
 <title>$this->title</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link type="text/css" rel="stylesheet" href="css/sketch.css">
+<link type="text/css" rel="stylesheet" href="css/site.css">
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="site.con.js"></script>
 HTML;

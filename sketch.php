@@ -7,21 +7,38 @@ $view->setTitle("Create A Sketch")
 <html lang="en">
 <head>
     <?php echo $view->head(); ?>
+    <!--[if IE]>
+    <script src="ie-canvas.js"></script>
+    <![endif]-->
+    <script>
+        $(document).ready(function() {
+            drawingApp.init();
+        });
+    </script>
 </head>
 <body>
+<div class="content" id="sketch">
 
-<?php echo $view->header(); ?>
+    <?php echo $view->header(); ?>
 
-<div id="canvasDiv"></div>
-<!--[if IE]>
-<script src="ie-canvas.js"></script>
-<![endif]-->
-<script src="site.con.js"></script>
-<script>
-    drawingApp.init();
-</script>
+    <form>
+        <p>
+            <label for="title">Title: </label>
+            <input type="text" name="title" placeholder="Give your sketch a title..." maxlength="100">
+        </p>
 
-<?php echo $view->footer() ?>
+        <div id="app">
+            <div id="canvasDiv"></div>
+        </div>
 
+        <p>
+            <input type="submit" name="save" value="Save">
+            <input type="submit" name="discard" value="Discard">
+        </p>
+    </form>
+
+    <?php echo $view->footer() ?>
+
+</div>
 </body>
 </html>
