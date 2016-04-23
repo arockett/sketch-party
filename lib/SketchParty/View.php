@@ -55,8 +55,7 @@ HTML;
     {
         return <<<HTML
 <footer>
-    <p class="quote">"Life is the art of drawing without an eraser."</p>
-    <p class="source">- John W. Gardner</p>
+    <p>A CasualDev production, copyright © 2016</p>
 </footer>
 HTML;
     }
