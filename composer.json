@@ -1,5 +1,16 @@
 {
-  "autoload": {
-    "psr-4": {"SketchParty\\": "lib/SketchParty"}
-  }
+    "name": "casualdev/sketch-party",
+    "require-dev": {
+        "phpunit/phpunit": "^5.3",
+        "phpunit/dbunit": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Aaron Beckett",
+            "email": "becketta@msu.edu"
+        }
+    ],
+    "autoload": {
+      "psr-4": {"SketchParty\\": "lib/SketchParty"}
+    }
 }
