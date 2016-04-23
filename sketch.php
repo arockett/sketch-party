@@ -26,6 +26,12 @@ $view->setTitle("Create A Sketch")
             <label for="title">Title: </label>
             <input type="text" name="title" placeholder="Give your sketch a title..." maxlength="100">
         </p>
+        <p>
+            <label for="outline">Template: </label>
+            <select name="outline">
+                <option value="duck">Watermelon Duck</option>
+            </select>
+        </p>
 
         <div id="app">
             <div id="canvasDiv"></div>
