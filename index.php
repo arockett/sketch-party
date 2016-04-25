@@ -15,19 +15,21 @@ $view->setTitle("Welcome To SketchParty!")
 
     <form>
         <p>
-            <input type="submit" name="create" value="New Sketch">
+            <input type="submit" name="create" value="Create Sketch">
             <input type="submit" name="add" value="Add Quote">
         </p>
     </form>
 
     <div class="double-column">
         <div id="left">
-            <p>
-                <img src="images/outlines/watermelon-duck-outline.png">
-            </p>
-            <p>
-                <img src="images/outlines/watermelon-duck-outline.png">
-            </p>
+            <div class="sketch">
+                <p class="title">Lorem Ipsum</p>
+                <p><img src="images/outlines/watermelon-duck-outline.png"></p>
+            </div>
+            <div class="sketch">
+                <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p><img src="images/outlines/watermelon-duck-outline.png"></p>
+            </div>
         </div>
 
         <div id="right">
