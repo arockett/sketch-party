@@ -2,3 +2,5 @@
 /vendor/
 composer.lock
 /css/*.css
+site.con.js
+site.min.js

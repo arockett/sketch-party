@@ -13,6 +13,7 @@ $view->setTitle("Create A Sketch")
     <script>
         $(document).ready(function() {
             drawingApp.init();
+            new Sketch("form");
         });
     </script>
 </head>
@@ -24,7 +25,7 @@ $view->setTitle("Create A Sketch")
     <form>
         <p>
             <label for="title">Title: </label>
-            <input type="text" name="title" placeholder="Give your sketch a title..." maxlength="100">
+            <input type="text" id="title" name="title" placeholder="Give your sketch a title..." maxlength="100">
         </p>
         <p>
             <label for="outline">Template: </label>
@@ -38,9 +39,10 @@ $view->setTitle("Create A Sketch")
         </div>
 
         <p>
-            <input type="submit" name="save" value="Save">
-            <input type="submit" name="discard" value="Discard">
+            <input type="submit" id="save" name="save" value="Save">
+            <input type="submit" id="discard" name="discard" value="Discard">
         </p>
+        <div class="message"></div>
     </form>
 
     <?php echo $view->footer() ?>
