@@ -15,13 +15,14 @@ class SketchController extends Controller {
         parent::__construct($site);
 
         $title = $_POST['title'];
-        $sketch = $_POST['sketch'];
-        $sketch = str_replace('data:image/png;base64,', '', $sketch);
-        $sketch = str_replace(' ', '+', $sketch);
-        $data = base64_decode($sketch);
+        $url = $_POST['sketch'];
+        $url = str_replace('data:image/png;base64,', '', $url);
+        $url = str_replace(' ', '+', $url);
+        $data = base64_decode($url);
+        $sketch = new Sketch(array('title' => $title, 'image' => $data));
 
         $sketches = new Sketches($site);
-        if(!$sketches->saveSketch($title, $data)) {
+        if($sketches->save($sketch) === null) {
             $this->result = json_encode(array('ok' => false, 'message' => "Upload failed"));
             return;
         }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <test_sketch_quote id="3" source="Walt Stanchfield"
+        quote="We all have 10,000 bad drawings in us. The sooner we get them out the better." />
+    <test_sketch_quote id="5" source="John W. Gardner"
+        quote="Life is the art of drawing without an eraser." />
+    <test_sketch_quote id="6" source="Stephan Pastis"
+        quote="If a restaurant offers crayons, I always take them and color throughout the meal. It beats talking to the people I came to dinner with." />
+    <test_sketch_quote id="9" source="Mark Twain"
+        quote="I have never let my schooling interfere with my education."/>
+    <test_sketch_quote id="10" source="Ludwig van Beethoven"
+        quote="Nothing is more intolerable than to have to admit to yourself your own errors." />
+</dataset>

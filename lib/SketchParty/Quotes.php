@@ -3,16 +3,16 @@
  * Created by PhpStorm.
  * User: Aaron Beckett
  * Date: 4/24/2016
- * Time: 8:08 PM
+ * Time: 11:11 PM
  */
 
 namespace SketchParty;
 
 
-class Sketches extends Table {
+class Quotes extends Table {
 
     public function __construct(Site $site) {
-        parent::__construct($site, "sketch");
+        parent::__construct($site, "quote");
     }
 
     public function get($id) {
@@ -27,22 +27,22 @@ SQL;
             return null;
         }
 
-        return new Sketch($statement->fetch(\PDO::FETCH_ASSOC));
+        return new Quote($statement->fetch(\PDO::FETCH_ASSOC));
     }
 
-    public function save(Sketch $sketch) {
+    public function add(Quote $quote) {
         $sql = <<<SQL
-insert into $this->tableName(title, image)
+insert into $this->tableName(source, quote)
 values(?, ?)
 SQL;
 
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute(array($sketch->getTitle(), $sketch->getData()));
+        $statement->execute(array($quote->getSource(), $quote->getQuote()));
 
         return $this->pdo()->lastInsertId();
     }
 
-    public function getRandom($count = 2) {
+    public function getRandom($count = 3) {
         $sql = <<<SQL
 select id from $this->tableName
 SQL;
@@ -54,13 +54,13 @@ SQL;
         }
 
         $ids = $statement->fetchall(\PDO::FETCH_ASSOC);
-        $sketches = array();
+        $quotes = array();
         $used = array();
         for($i=0; $i<$count; $i++) {
             while(in_array($idx = rand(0,count($ids)-1), $used));
             $used[] = $idx;
-            $sketches[] = $this->get($ids[$idx]['id']);
+            $quotes[] = $this->get($ids[$idx]['id']);
         }
-        return $sketches;
+        return $quotes;
     }
 }
