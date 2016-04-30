@@ -44,7 +44,7 @@ $view->setTitle("Create A Sketch")
             <input type="submit" id="save" name="save" value="Save">
             <input type="submit" id="discard" name="discard" value="Discard">
         </p>
-        <div class="message"></div>
+        <div id="message"></div>
     </form>
 
     <?php echo $view->footer() ?>
