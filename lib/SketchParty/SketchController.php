@@ -11,7 +11,7 @@ namespace SketchParty;
 
 class SketchController extends Controller {
 
-    const SKETCH_DIR = '../images/sketches/';
+    const SKETCH_DIR = 'images/sketches/';
 
     public function __construct(Site $site, array $post) {
         parent::__construct($site);
@@ -33,7 +33,8 @@ class SketchController extends Controller {
             $salt = self::randomSalt();
             $filename = self::SKETCH_DIR . $salt . '.' . $extension;
         } while($sketches->exists($filename));
-        file_put_contents($filename, $data);
+        $savepath = '../' . $filename;
+        file_put_contents($savepath, $data);
 
         // Add the sketch to the database
         $sketch = new Sketch(array('title' => $title, 'imagefile' => $filename));
