@@ -10,3 +10,10 @@ function parse_json(json) {
 
     return data;
 }
+
+function message(sel, msg) {
+    $(sel + " #message").html(msg);
+    $(sel + " #message").show()
+        .delat(2000)
+        .fadeOut(1000);
+}

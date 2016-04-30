@@ -4,8 +4,6 @@
 function Sketch(sel) {
     var that = this;
 
-    this.sel = sel;
-
     var form = $(sel);
     var app = $(sel + " #app #canvasDiv");
 
@@ -26,18 +24,18 @@ function Sketch(sel) {
                 var json = parse_json(data);
                 if(json.ok) {
                     // Successfully saved sketch
-                    that.message("<p>Sketch saved</p>");
+                    message(sel, "<p>Sketch saved</p>");
                     window.setTimeout(function() {
                         window.location.assign("./");
                     }, 1500);
                 } else {
                     // Failed to save the sketch
-                    that.message("<p>" + json.message + "</p>");
+                    message(sel, "<p>" + json.message + "</p>");
                 }
             },
             error: function(xhr, status, error) {
                 // An error!
-                that.message("<p>Error: " + error + "</p>");
+                message(sel, "<p>Error: " + error + "</p>");
             }
         });
     });
@@ -46,11 +44,4 @@ function Sketch(sel) {
         event.preventDefault();
         window.location.assign("./");
     });
-}
-
-Sketch.prototype.message = function(msg) {
-    $(this.sel + " .message").html(msg);
-        $(this.sel + " .message").show()
-            .delay(2000)
-            .fadeOut(1000);
 }
