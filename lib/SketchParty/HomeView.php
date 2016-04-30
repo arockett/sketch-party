@@ -38,12 +38,14 @@ HTML;
     <div id="left">
         <div class="sketch">
             <p class="title">Lorem Ipsum</p>
-            <p><img src="images/outlines/watermelon-duck-outline.png"></p>
+            <p><img src="images/sketch-party-logo.png"></p>
         </div>
         <div class="sketch">
-            <p class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p><img src="images/outlines/watermelon-duck-outline.png"></p>
+            <p class="title">Lorem Ipsum</p>
+            <p><img src="images/sketch-party-logo.png"></p>
         </div>
+        <div id="message"></div>
+        <p><button id="refresh" type="button">Refresh</button></p>
     </div>
 
     <div id="right">
@@ -66,6 +68,8 @@ HTML;
             </p>
             <p class="source">Stephan Pastis</p>
         </div>
+        <div id="message"></div>
+        <p><button id="refresh" type="button">Refresh</button></p>
     </div>
 </div>
 HTML;

@@ -9,7 +9,7 @@ $view->setTitle("Welcome To SketchParty!")
     <?php echo $view->head(); ?>
 </head>
 <body>
-<div class="content" id="welcome">
+<div class="content" id="home">
 
     <?php
     echo $view->header();
