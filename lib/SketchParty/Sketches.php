@@ -30,14 +30,29 @@ SQL;
         return new Sketch($statement->fetch(\PDO::FETCH_ASSOC));
     }
 
+    public function exists($filename) {
+        $sql = <<<SQL
+select * from $this->tableName
+where imagefile = ?
+SQL;
+
+        $statement = $this->pdo()->prepare($sql);
+        $statement->execute(array($filename));
+        if($statement->rowCount() === 0) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function save(Sketch $sketch) {
         $sql = <<<SQL
-insert into $this->tableName(title, image)
+insert into $this->tableName(title, imagefile)
 values(?, ?)
 SQL;
 
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute(array($sketch->getTitle(), $sketch->getData()));
+        $statement->execute(array($sketch->getTitle(), $sketch->getImageFilename()));
 
         return $this->pdo()->lastInsertId();
     }
@@ -48,12 +63,13 @@ select id from $this->tableName
 SQL;
 
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute(array());
+        $statement->execute();
         if($statement->rowCount() === 0) {
             return null;
         }
 
         $ids = $statement->fetchall(\PDO::FETCH_ASSOC);
+        $count = $count <= count($ids) ? $count : count($ids);
         $sketches = array();
         $used = array();
         for($i=0; $i<$count; $i++) {

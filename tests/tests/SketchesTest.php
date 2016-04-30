@@ -25,9 +25,17 @@ class SketchesTest extends EmptyDBTest
 
         $sketch = $sketches->get(7);
         $this->assertEquals("An image", $sketch->getTitle());
-        $this->assertEquals("9872s398gF7r298735", $sketch->getData());
+        $this->assertEquals("/images/sketches/2GShd459.png", $sketch->getImageFilename());
 
         $this->assertNull($sketches->get(9));
+    }
+
+    public function test_exists() {
+        $sketches = new Sketches(self::$site);
+
+        $this->assertTrue($sketches->exists("/images/sketches/2GShd459.png"));
+        $this->assertTrue($sketches->exists("/images/sketches/25AB204G.png"));
+        $this->assertFalse($sketches->exists("/images/sketches/2a98E473.png"));
     }
 
     public function test_save() {
@@ -35,7 +43,7 @@ class SketchesTest extends EmptyDBTest
 
         $params = array(
             'title' => "The SketchParty Logo",
-            'image' => file_get_contents("../images/sketch-party-logo.png")
+            'imagefile' => "/images/sketch-party-logo.png"
         );
         $sketch = new Sketch($params);
         $id = $sketches->save($sketch);
@@ -43,7 +51,7 @@ class SketchesTest extends EmptyDBTest
         $new_sketch = $sketches->get($id);
         $this->assertNotNull($new_sketch);
         $this->assertEquals($sketch->getTitle(), $new_sketch->getTitle());
-        $this->assertEquals($sketch->getData(), $new_sketch->getData());
+        $this->assertEquals($sketch->getImageFilename(), $new_sketch->getImageFilename());
     }
 
     public function test_get_random() {
@@ -51,11 +59,11 @@ class SketchesTest extends EmptyDBTest
 
         $params = array(
             'title' => "The SketchParty Logo",
-            'image' => file_get_contents("../images/sketch-party-logo.png")
+            'imagefile' => "/images/sketch-party-logo.png"
         );
         $sketches->save(new Sketch($params));
         $params['title'] = "Watermelon Duck";
-        $params['image'] = file_get_contents("../images/outlines/watermelon-duck-outline.png");
+        $params['imagefile'] = "/images/outlines/watermelon-duck-outline.png";
         $sketches->save(new Sketch($params));
 
         $two = $sketches->getRandom();
@@ -64,6 +72,9 @@ class SketchesTest extends EmptyDBTest
 
         $three = $sketches->getRandom(3);
         $this->assertEquals(3, count($three));
+
+        $more_than_exists = $sketches->getRandom(7);
+        $this->assertEquals(4, count($more_than_exists));
     }
 }
 
