@@ -29,7 +29,7 @@ function Sketch(sel) {
                     that.message("<p>Sketch saved</p>");
                     window.setTimeout(function() {
                         window.location.assign("./");
-                    }, 1000);
+                    }, 1500);
                 } else {
                     // Failed to save the sketch
                     that.message("<p>" + json.message + "</p>");
