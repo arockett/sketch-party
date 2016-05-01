@@ -37,5 +37,6 @@ function SketchFinder(sel) {
     function setSketch(div, sketch) {
         $(div).find(".title").text(sketch.title);
         $(div).find("img").attr("src", sketch.image);
+        $(div).hide().css('visibility', 'visible').fadeIn(1000);
     }
 }

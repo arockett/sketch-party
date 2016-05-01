@@ -37,5 +37,6 @@ function QuoteFinder(sel) {
     function setQuote(div, quote) {
         $(div).find(".quote").text(quote.quote);
         $(div).find(".source").text(quote.source);
+        $(div).hide().css('visibility', 'visible').fadeIn(1000);
     }
 }
