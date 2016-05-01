@@ -10,7 +10,7 @@ function Sketch(sel) {
     $(sel + " #save").click(function(event) {
         event.preventDefault();
 
-        var sketch_title = form.find("#title")[0].value;
+        var sketch_title = form.find("#title")[0].value.trim();
         var sketch_url = app.find("#canvas")[0].toDataURL();
 
         $.ajax({
