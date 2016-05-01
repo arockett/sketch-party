@@ -36,6 +36,16 @@ class HomeController extends Controller {
     }
 
     private function getNewQuotes(Site $site) {
-        
+        $table = new Quotes($site);
+        $quotes = $table->getRandom();
+        if(empty($quotes)) {
+            $this->result = json_encode(array('ok'=>false, 'message'=>"Failed to retrieve quotes"));
+            return;
+        }
+        $quotes_array = array();
+        foreach($quotes as $quote) {
+            $quotes_array[] = array('source'=>$quote->getSource(), 'quote'=>$quote->getQuote());
+        }
+        $this->result = json_encode(array('ok'=>true, 'quotes'=>$quotes_array));
     }
 }
