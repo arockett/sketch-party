@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dataset>
-    <test_sketch_sketch id="7" title="An image" imagefile="/images/sketches/2GShd459.png" />
-    <test_sketch_sketch id="10" title="Another one" imagefile="/images/sketches/25AB204G.png" />
+    <test_sketch_sketch id="7" title="An image" image="2GShd459" />
+    <test_sketch_sketch id="10" title="Another one" image="25AB204G" />
 </dataset>

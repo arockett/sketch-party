@@ -25,17 +25,9 @@ class SketchesTest extends EmptyDBTest
 
         $sketch = $sketches->get(7);
         $this->assertEquals("An image", $sketch->getTitle());
-        $this->assertEquals("/images/sketches/2GShd459.png", $sketch->getImageFilename());
+        $this->assertEquals("2GShd459", $sketch->getImage());
 
         $this->assertNull($sketches->get(9));
-    }
-
-    public function test_exists() {
-        $sketches = new Sketches(self::$site);
-
-        $this->assertTrue($sketches->exists("/images/sketches/2GShd459.png"));
-        $this->assertTrue($sketches->exists("/images/sketches/25AB204G.png"));
-        $this->assertFalse($sketches->exists("/images/sketches/2a98E473.png"));
     }
 
     public function test_save() {
@@ -43,7 +35,7 @@ class SketchesTest extends EmptyDBTest
 
         $params = array(
             'title' => "The SketchParty Logo",
-            'imagefile' => "/images/sketch-party-logo.png"
+            'image' => file_get_contents("../images/sketch-party-logo.png")
         );
         $sketch = new Sketch($params);
         $id = $sketches->save($sketch);
@@ -51,7 +43,7 @@ class SketchesTest extends EmptyDBTest
         $new_sketch = $sketches->get($id);
         $this->assertNotNull($new_sketch);
         $this->assertEquals($sketch->getTitle(), $new_sketch->getTitle());
-        $this->assertEquals($sketch->getImageFilename(), $new_sketch->getImageFilename());
+        $this->assertEquals($sketch->getImage(), $new_sketch->getImage());
     }
 
     public function test_get_random() {
@@ -59,11 +51,11 @@ class SketchesTest extends EmptyDBTest
 
         $params = array(
             'title' => "The SketchParty Logo",
-            'imagefile' => "/images/sketch-party-logo.png"
+            'image' => file_get_contents("../images/sketch-party-logo.png")
         );
         $sketches->save(new Sketch($params));
         $params['title'] = "Watermelon Duck";
-        $params['imagefile'] = "/images/outlines/watermelon-duck-outline.png";
+        $params['image'] = file_get_contents("../images/outlines/Watermelon-Duck.png");
         $sketches->save(new Sketch($params));
 
         $two = $sketches->getRandom();

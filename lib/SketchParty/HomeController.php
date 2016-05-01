@@ -34,7 +34,8 @@ class HomeController extends Controller {
         }
         $sketch_array = array();
         foreach($sketches as $sketch) {
-            $sketch_array[] = array('title'=>$sketch->getTitle(), 'path'=>$sketch->getImageFilename());
+            $uri = 'data:image/png;base64,' . base64_encode($sketch->getImage());
+            $sketch_array[] = array('title'=>$sketch->getTitle(), 'image'=>$uri);
         }
         $this->result = json_encode(array('ok'=>true, 'sketches'=>$sketch_array));
     }

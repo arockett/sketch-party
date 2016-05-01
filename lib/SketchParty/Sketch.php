@@ -16,7 +16,7 @@ class Sketch {
             $this->id = $row['id'];
         }
         $this->title = $row['title'];
-        $this->imagefile = $row['imagefile'];
+        $this->image = $row['image'];
     }
 
     /**
@@ -36,11 +36,11 @@ class Sketch {
     /**
      * @return mixed
      */
-    public function getImageFilename() {
-        return $this->imagefile;
+    public function getImage() {
+        return $this->image;
     }
 
     private $id;
     private $title;
-    private $imagefile;
+    private $image;
 }

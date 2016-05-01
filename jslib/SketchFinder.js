@@ -36,6 +36,6 @@ function SketchFinder(sel) {
 
     function setSketch(div, sketch) {
         $(div).find(".title").text(sketch.title);
-        $(div).find("img").attr("src", sketch.path);
+        $(div).find("img").attr("src", sketch.image);
     }
 }

@@ -23,36 +23,31 @@ SQL;
 
         $statement = $this->pdo()->prepare($sql);
         $statement->execute(array($id));
+        $statement->bindColumn(1, $id, \PDO::PARAM_INT);
+        $statement->bindColumn(2, $title, \PDO::PARAM_STR);
+        $statement->bindColumn(3, $lob, \PDO::PARAM_LOB);
+
         if($statement->rowCount() === 0) {
             return null;
         }
 
-        return new Sketch($statement->fetch(\PDO::FETCH_ASSOC));
-    }
-
-    public function exists($filename) {
-        $sql = <<<SQL
-select * from $this->tableName
-where imagefile = ?
-SQL;
-
-        $statement = $this->pdo()->prepare($sql);
-        $statement->execute(array($filename));
-        if($statement->rowCount() === 0) {
-            return false;
-        }
-
-        return true;
+        $statement->fetch(\PDO::FETCH_BOUND);
+        return new Sketch(array('id'=>$id, 'title'=>$title, 'image'=>$lob));
     }
 
     public function save(Sketch $sketch) {
         $sql = <<<SQL
-insert into $this->tableName(title, imagefile)
+insert into $this->tableName(title, image)
 values(?, ?)
 SQL;
 
+        $title = $sketch->getTitle();
+        $img = $sketch->getImage();
+
         $statement = $this->pdo()->prepare($sql);
-        $statement->execute(array($sketch->getTitle(), $sketch->getImageFilename()));
+        $statement->bindParam(1, $title);
+        $statement->bindParam(2, $img, \PDO::PARAM_LOB);
+        $statement->execute();
 
         return $this->pdo()->lastInsertId();
     }
