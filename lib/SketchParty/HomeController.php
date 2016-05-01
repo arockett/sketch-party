@@ -18,6 +18,10 @@ class HomeController extends Controller {
             $this->getNewSketches($site);
         } else if(isset($post['refresh_quotes'])) {
             $this->getNewQuotes($site);
+        } else if(isset($post['create_sketch'])) {
+            $this->redirect = $site->getRoot() . '/sketch.php';
+        } else if(isset($post['add_quote'])) {
+            $this->redirect = $site->getRoot() . '/quote.php';
         }
     }
 

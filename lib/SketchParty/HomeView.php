@@ -27,10 +27,10 @@ HTML;
 
     public function present() {
         $html = <<<HTML
-<form>
+<form action="post/create-add.php" method="post">
     <p>
-        <input type="submit" name="create" value="Create Sketch">
-        <input type="submit" name="add" value="Add Quote">
+        <input type="submit" name="create_sketch" value="Create Sketch">
+        <input type="submit" name="add_quote" value="Add Quote">
     </p>
 </form>
 

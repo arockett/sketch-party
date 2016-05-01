@@ -24,7 +24,7 @@ $view->setTitle("Create A Sketch")
 
     <form>
         <p>
-            <label for="title">Title: </label>
+            <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Give your sketch a title..." maxlength="100">
         </p>
         <p>
