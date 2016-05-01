@@ -17,7 +17,7 @@ function Sketch(sel) {
         event.preventDefault();
 
         var sketch_title = form.find("#title")[0].value.trim();
-        var sketch_url = app.find("#canvas")[0].toDataURL();
+        var sketch_url = drawingApp.getDrawingUrl();
 
         $.ajax({
             url: "post/sketch.php",

@@ -38,11 +38,11 @@ HTML;
     <div id="left">
         <div class="sketch">
             <p class="title">Lorem Ipsum</p>
-            <p><img src="images/sketch-party-logo.png"></p>
+            <p><img src="images/outlines/None.png"></p>
         </div>
         <div class="sketch">
             <p class="title">Lorem Ipsum</p>
-            <p><img src="images/sketch-party-logo.png"></p>
+            <p><img src="images/outlines/None.png"></p>
         </div>
         <div id="message"></div>
         <p><button id="refresh" type="button">Refresh</button></p>

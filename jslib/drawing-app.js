@@ -436,10 +436,26 @@ var drawingApp = (function () {
 	    setTemplate = function(path) {
             outlineImage.src = path;
             redraw();
+        },
+
+        getDrawingUrl = function() {
+            // Create scribe canvas with the size of the drawing area
+            var scribe = document.createElement('canvas');
+            scribe.setAttribute('width', drawingAreaWidth);
+            scribe.setAttribute('height', drawingAreaHeight);
+            var scribe_ctx = scribe.getContext("2d");
+
+            // Copy the drawing from the canvas onto the scribe
+            var drawing = context.getImageData(drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
+            scribe_ctx.putImageData(drawing, 0, 0);
+
+            // Return the data url of the scribe aka the drawing
+            return scribe.toDataURL();
         };
 
 	return {
 		init: init,
-        setTemplate: setTemplate
+        setTemplate: setTemplate,
+        getDrawingUrl: getDrawingUrl
 	};
 }());
