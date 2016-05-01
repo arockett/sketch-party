@@ -30,8 +30,11 @@ $view->setTitle("Create A Sketch")
         <p>
             <label for="outline">
                 Template:
-                <select name="outline">
-                    <option value="duck">Watermelon Duck</option>
+                <select name="outline" id="outline">
+                    <option value="images/outlines/None.png">None</option>
+                    <option selected value="images/outlines/Watermelon-Duck.png">Watermelon Duck</option>
+                    <option value="images/outlines/Palm-Tree.png">Palm Tree</option>
+                    <option value="images/outlines/Snail.png">Snail</option>
                 </select>
             </label>
         </p>

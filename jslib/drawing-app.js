@@ -430,10 +430,16 @@ var drawingApp = (function () {
 			crayonTextureImage.src = "images/app/crayon-texture.png";
 
 			outlineImage.onload = resourceLoaded;
-			outlineImage.src = "images/outlines/watermelon-duck-outline.png";
-		};
+			outlineImage.src = "images/outlines/Watermelon-Duck.png";
+        },
+
+	    setTemplate = function(path) {
+            outlineImage.src = path;
+            redraw();
+        };
 
 	return {
-		init: init
+		init: init,
+        setTemplate: setTemplate
 	};
 }());

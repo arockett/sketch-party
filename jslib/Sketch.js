@@ -5,7 +5,13 @@ function Sketch(sel) {
     var that = this;
 
     var form = $(sel);
+    var outline = $(sel + " #outline");
     var app = $(sel + " #app #canvasDiv");
+
+    outline.change(function(event) {
+        event.preventDefault();
+        drawingApp.setTemplate(outline.val());
+    });
 
     $(sel + " #save").click(function(event) {
         event.preventDefault();
