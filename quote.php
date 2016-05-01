@@ -7,6 +7,11 @@ $view->setTitle("Add A Quote");
 <html>
 <head>
     <?php echo $view->head(); ?>
+    <script>
+        $(document).ready(function() {
+            new Quote("form");
+        });
+    </script>
 </head>
 <body>
 <div class="content" id="quote">
