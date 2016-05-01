@@ -27,18 +27,19 @@ class SketchController extends Controller {
         $data = str_replace(' ', '+', $data);
         $data = base64_decode($data);
 
-        // Generate an image file name and save the image data under this name
+        // Generate an image file name for the database and for saving
         $sketches = new Sketches($site);
         do {
             $salt = self::randomSalt();
             $filename = self::SKETCH_DIR . $salt . '.' . $extension;
         } while($sketches->exists($filename));
         $savepath = '../' . $filename;
-        file_put_contents($savepath, $data);
 
-        // Add the sketch to the database
+        // Save the image file then add the sketch to the database
         $sketch = new Sketch(array('title' => $title, 'imagefile' => $filename));
-        if($sketches->save($sketch) === null) {
+        if( !file_put_contents($savepath, $data) or
+            $sketches->save($sketch) === null)
+        {
             $this->result = json_encode(array('ok' => false, 'message' => "Upload failed"));
             return;
         }
