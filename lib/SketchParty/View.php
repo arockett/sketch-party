@@ -30,7 +30,7 @@ class View {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link type="text/css" rel="stylesheet" href="css/site.css">
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="site.con.js"></script>
+<script src="site.min.js"></script>
 HTML;
     }
 
