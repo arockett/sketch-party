@@ -434,8 +434,8 @@ var drawingApp = (function () {
         },
 
 	    setTemplate = function(path) {
+			outlineImage.onload = redraw;
             outlineImage.src = path;
-            redraw();
         },
 
         getDrawingUrl = function() {
