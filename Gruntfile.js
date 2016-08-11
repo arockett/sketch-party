@@ -60,6 +60,6 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['concat:js', 'uglify:js']);
-    grunt.registerTAsk('production', ['uglify:js', 'less:development:files']);
+    grunt.registerTask('production', ['uglify:js', 'less:development:files']);
 
 };
