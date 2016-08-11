@@ -24,8 +24,6 @@ SQL;
         $statement = $this->pdo()->prepare($sql);
         $statement->execute(array($id));
         $statement->bindColumn(1, $id, \PDO::PARAM_INT);
-        $statement->bindColumn(2, $title, \PDO::PARAM_STR);
-        $statement->bindColumn(3, $lob, \PDO::PARAM_LOB);
 
         if($statement->rowCount() === 0) {
             return null;

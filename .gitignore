@@ -1,6 +1,6 @@
 .idea/workspace.xml
-/vendor/
-composer.lock
-/css/*.css
+vendor
+node_modules
+css/*.css
 site.con.js
 site.min.js
