@@ -15,7 +15,7 @@ return function(SketchParty\Site $site) {
     date_default_timezone_set('America/Detroit');
 
     $site->setEmail('aminor65ii@gmail.com');
-    // Don't set the when deploying to Heroku
+    // Don't set the root when deploying to Heroku
     //$site->setRoot('/~becketta/sketch-party');
     $site->dbConfigure('mysql:host=mysql-user.cse.msu.edu;dbname=becketta',
         'becketta',         // Database user
