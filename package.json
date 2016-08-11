@@ -5,7 +5,7 @@
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "grunt uglify"
+    "postinstall": "./node_modules/grunt/bin/grunt uglify"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/becketta/sketch-party#readme",
   "dependencies": {
-    "jquery": "^2.2.3"
-  },
-  "devDependencies": {
+    "jquery": "^2.2.3",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^1.0.1"
+  },
+  "devDependencies": {
   }
 }
