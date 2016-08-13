@@ -1,6 +1,7 @@
 {
     "name": "casualdev/sketch-party",
     "require-dev": {
+        "heroku/heroku-buildpack-php": "^109.0",
         "phpunit/phpunit": "^5.3",
         "phpunit/dbunit": "^2.0"
     },
@@ -12,5 +13,8 @@
     ],
     "autoload": {
       "psr-4": {"SketchParty\\": "lib/SketchParty"}
+    },
+    "require": {
+        "php": "^5.6"
     }
 }

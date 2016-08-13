@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat:js', 'uglify:js']);
-    grunt.registerTask('production', ['uglify:js', 'less:development:files']);
+    grunt.registerTask('default', ['concat:js', 'uglify:js', 'less:development', 'watch:styles']);
+    grunt.registerTask('production', ['concat:js', 'uglify:js', 'less:development']);
 
 };
