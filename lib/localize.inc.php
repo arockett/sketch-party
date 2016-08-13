@@ -15,7 +15,7 @@ return function(SketchParty\Site $site) {
     date_default_timezone_set('America/Detroit');
 
     $site->setEmail('aminor65ii@gmail.com');
-    $site->setRoot('.');
+    $site->setRoot('');
 
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
