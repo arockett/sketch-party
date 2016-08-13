@@ -19,18 +19,10 @@ return function(SketchParty\Site $site) {
 
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-    $server = $url["host"];
     $username = $url["user"];
     $password = $url["pass"];
     $db = substr($url["path"], 1);
+    $dburl = 'mysql:host=' . $url["host"] . ';dbname=' . $db;
 
-    error_log("server: " . $server);
-    error_log("user: " . $username);
-    error_log("passwd: " . $password);
-    error_log("db: " . $db);
-
-    $site->dbConfigure('mysql:host=mysql-user.cse.msu.edu;dbname=becketta',
-        'becketta',         // Database user
-        'nodatasetforyou',  // Database password
-        'sketch_');           // Table prefix
+    $site->dbConfigure($dburl, $username, $password, '');
 };

@@ -16,8 +16,13 @@ return function(SketchParty\Site $site) {
 
     $site->setEmail('aminor65ii@gmail.com');
     $site->setRoot('.');
-    $site->dbConfigure('mysql:host=mysql-user.cse.msu.edu;dbname=becketta',
-        'becketta',         // Database user
-        'nodatasetforyou',  // Database password
-        'test_sketch_');    // Table prefix
+
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"], 1);
+    $dburl = 'mysql:host=' . $url["host"] . ';dbname=' . $db;
+
+    $site->dbConfigure($dburl, $username, $password, 'test_');
 };
