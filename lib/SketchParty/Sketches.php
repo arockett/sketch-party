@@ -16,6 +16,9 @@ class Sketches extends Table {
     }
 
     public function get($id) {
+        $title = null;
+        $lob = null;
+
         $sql = <<<SQL
 select * from $this->tableName
 where id = ?

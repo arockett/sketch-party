@@ -39,6 +39,7 @@ class Site {
             $this->pdo = new \PDO($this->dbHost, $this->dbUser, $this->dbPassword);
         } catch(\PDOException $e) {
             // If we can't connect we die!
+            error_log("Unable to select database");
             die("Unable to select database");
         }
 
